@@ -256,4 +256,10 @@ do {
 
 ---
 
+## Topics
+
+### Resources
+
+- <doc:CHANGELOG>
+
 > Engine internals, storage format, and performance details are documented in [ARCHITECTURE.md](https://github.com/maltzsama/nyarudb2/blob/main/ARCHITECTURE.md) and [CHANGELOG.md](https://github.com/maltzsama/nyarudb2/blob/main/CHANGELOG.md).

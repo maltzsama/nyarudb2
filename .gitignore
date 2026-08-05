@@ -262,7 +262,3 @@ $RECYCLE.BIN/
 
 tags
 tmp/
-
-# Python
-__pycache__/
-*.pyc

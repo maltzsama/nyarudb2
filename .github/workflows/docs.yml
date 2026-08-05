@@ -35,19 +35,16 @@ jobs:
       - name: Build (symbol graphs)
         run: swift build -c release
 
+      - name: Stage CHANGELOG as DocC article
+        run: |
+          cp ./CHANGELOG.md Sources/NyaruDB2/Documentation.docc/CHANGELOG.md
+
       - name: Generate Swift DocC static site
         run: |
           swift package --allow-writing-to-directory ./docs \
             generate-documentation --target NyaruDB2 --output-path ./docs \
             --transform-for-static-hosting --hosting-base-path nyarudb2 \
             --experimental-enable-custom-templates
-
-      - name: Build landing page from README
-        run: |
-          python3 -m pip install --user markdown
-          mkdir -p ./docs/img
-          cp ./img/nyaru.svg ./docs/img/nyaru.svg
-          python3 Scripts/build-landing.py ./docs/index.html
 
       - name: Ensure analytics footer is present on every page
         run: |
