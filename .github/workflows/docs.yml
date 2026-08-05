@@ -42,6 +42,13 @@ jobs:
             --transform-for-static-hosting --hosting-base-path nyarudb2 \
             --experimental-enable-custom-templates
 
+      - name: Build landing page from README
+        run: |
+          python3 -m pip install --user markdown
+          mkdir -p ./docs/img
+          cp ./img/nyaru.svg ./docs/img/nyaru.svg
+          python3 Scripts/build-landing.py ./docs/index.html
+
       - name: Ensure analytics footer is present on every page
         run: |
           # Workaround for https://github.com/swiftlang/swift-docc/issues/1532
