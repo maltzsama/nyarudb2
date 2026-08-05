@@ -11,6 +11,7 @@ let package = Package(
     .package(url: "https://github.com/galileostd/swift-msgpack", from: "1.4.0"),
     .package(url: "https://github.com/apple/swift-crypto", from: "4.5.0"),
     .package(url: "https://github.com/apple/swift-log", from: "1.14.0"),
+    .package(url: "https://github.com/apple/swift-docc-plugin", exact: "1.4.6"),
   ],
   targets: [
     .target(

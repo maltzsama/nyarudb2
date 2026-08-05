@@ -1,0 +1,56 @@
+name: Docs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build & Deploy Documentation
+    runs-on: macos-14
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Build (symbol graphs)
+        run: swift build -c release
+
+      - name: Generate Swift DocC static site
+        run: |
+          swift package --allow-writing-to-directory ./docs \
+            generate-documentation --target NyaruDB2 --output-path ./docs \
+            --transform-for-static-hosting --hosting-base-path nyarudb2 \
+            --experimental-enable-custom-templates
+
+      - name: Ensure analytics footer is present on every page
+        run: |
+          # Workaround for https://github.com/swiftlang/swift-docc/issues/1532
+          ANALYTICS_MARKER='counter.dev/script.js'
+          FOUND=0
+          for f in $(find ./docs -name 'index.html'); do
+            if grep -q "$ANALYTICS_MARKER" "$f"; then
+              FOUND=$((FOUND+1))
+            fi
+          done
+          echo "pages with analytics: $FOUND"
+          if [ "$FOUND" -lt 1 ]; then
+            echo "::error::No generated page contains the analytics footer (docc custom templates were not applied)."
+            exit 1
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          force_orphan: false

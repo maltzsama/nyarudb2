@@ -413,14 +413,20 @@ do {
 
 ## Documentation
 
-Full API reference is generated with [jazzy](https://github.com/realm/jazzy) and published on GitHub Pages:
+Generated with [Swift DocC](https://www.swift.org/documentation/docc/) and published to GitHub Pages:
+
+<https://maltzsama.github.io/nyarudb2/>
+
+Every public symbol carries doc comments, so the generated reference covers the complete API surface. The Docs workflow rebuilds and redeploys automatically on every push to `main`:
 
 ```bash
-gem install jazzy
-jazzy   # reads .jazzy.yaml, outputs to docs/
+swift package --allow-writing-to-directory ./docs \
+  generate-documentation --target NyaruDB2 --output-path ./docs \
+  --transform-for-static-hosting --hosting-base-path nyarudb2 \
+  --experimental-enable-custom-templates
 ```
 
-Every public symbol carries doc comments, so the generated reference covers the complete API surface. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ---
 
