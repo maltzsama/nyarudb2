@@ -12,7 +12,7 @@ Embedded document database for Swift. No server, no schema, no ceremony.
 
 Store, query, and stream any `Codable` type — directly on device, with indexed queries, optional AES-256-GCM encryption, crash recovery, and real backpressure streaming. No Core Data stack, no migrations, no SQL.
 
-> Deep dive: the full conceptual guide, installation, quick start, and performance numbers live in the [README](https://github.com/galileostudio/nyarudb2#readme).
+> Deep dive: the full conceptual guide, installation, quick start, and performance numbers live in the [README](https://github.com/maltzsama/nyarudb2#readme).
 
 ---
 
@@ -39,7 +39,7 @@ Probably **not** the right choice when:
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/galileostudio/NyaruDB2.git", from: "0.3.0")
+    .package(url: "https://github.com/maltzsama/NyaruDB2.git", from: "0.3.0")
 ],
 targets: [
     .target(name: "YourApp", dependencies: ["NyaruDB2"])
@@ -256,4 +256,4 @@ do {
 
 ---
 
-> Engine internals, storage format, and performance details are documented in [ARCHITECTURE.md](https://github.com/galileostudio/nyarudb2/blob/main/ARCHITECTURE.md) and [CHANGELOG.md](https://github.com/galileostudio/nyarudb2/blob/main/CHANGELOG.md).
+> Engine internals, storage format, and performance details are documented in [ARCHITECTURE.md](https://github.com/maltzsama/nyarudb2/blob/main/ARCHITECTURE.md) and [CHANGELOG.md](https://github.com/maltzsama/nyarudb2/blob/main/CHANGELOG.md).

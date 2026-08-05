@@ -12,7 +12,7 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a wel
 ## 🐞 Reporting Issues
 If you encounter a bug or have a feature suggestion:
 
-1. Search existing [issues](https://github.com/galileostudio/NyaruDB2/issues) to see if it’s already reported.
+1. Search existing [issues](https://github.com/maltzsama/NyaruDB2/issues) to see if it’s already reported.
 2. If not, open a new issue. Include:
    - A clear and descriptive title.
    - Reproduction steps or a minimal code sample.

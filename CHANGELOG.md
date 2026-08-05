@@ -227,7 +227,8 @@ dirty-flag crash recovery, actor-based concurrency, ordered in-memory indexes
 with persisted snapshots, fluent typed queries with a cost-based planner,
 partitioning, optional gzip/LZFSE/LZ4 compression, AES-256-GCM encryption,
 pull-based streaming, and explicit compaction.
+[0.3.0]: https://github.com/maltzsama/nyarudb2/compare/0.2.0...0.3.0
 
-[0.3.0]: https://github.com/galileostudio/nyarudb2/compare/0.2.0...0.3.0
-[0.2.0]: https://github.com/galileostudio/nyarudb2/compare/v0.1.0-alpha1...v0.2.0
-[0.1.0-alpha1]: https://github.com/galileostudio/nyarudb2/releases/tag/v0.1.0-alpha1
+[0.2.0]: https://github.com/maltzsama/nyarudb2/compare/v0.1.0-alpha1...v0.2.0
+
+[0.1.0-alpha1]: https://github.com/maltzsama/nyarudb2/releases/tag/v0.1.0-alpha1

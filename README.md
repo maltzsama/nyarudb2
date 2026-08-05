@@ -35,7 +35,7 @@ Probably **not** the right choice when:
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/galileostudio/NyaruDB2.git", from: "0.3.0")
+    .package(url: "https://github.com/maltzsama/NyaruDB2.git", from: "0.3.0")
 ],
 targets: [
     .target(name: "YourApp", dependencies: ["NyaruDB2"])
@@ -432,7 +432,7 @@ See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 
-Apache 2.0 © 2026 [galileostudio](https://github.com/galileostudio). See [LICENSE](LICENSE.md).
+Apache 2.0 © 2026 [maltzsama](https://github.com/maltzsama). See [LICENSE](LICENSE.md).
 
 ---
 
