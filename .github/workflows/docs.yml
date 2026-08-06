@@ -43,16 +43,17 @@ jobs:
         run: |
           swift package --allow-writing-to-directory ./docs \
             generate-documentation --target NyaruDB2 --output-path ./docs \
-            --transform-for-static-hosting --hosting-base-path nyarudb2 \
+            --transform-for-static-hosting \
+            --hosting-base-url https://nyarudb2.galileostd.io \
             --experimental-enable-custom-templates
 
       - name: Redirect site root to documentation landing
         run: |
           printf '%s' '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' \
-            '<meta http-equiv="refresh" content="0; url=./documentation/nyarudb2/">' \
+            '<meta http-equiv="refresh" content="0; url=/documentation/nyarudb2/">' \
             '<script src="https://cdn.counter.dev/script.js" data-id="2a2c5d2b-5c34-4212-be47-a2e658d11dbf" data-utcoffset="2"></script>' \
             '<title>NyaruDB2 Documentation</title></head>' \
-            '<body>Redirecting to <a href="./documentation/nyarudb2/">documentation</a>.</body></html>' \
+            '<body>Redirecting to <a href="/documentation/nyarudb2/">documentation</a>.</body></html>' \
             > ./docs/index.html
 
       - name: Ensure analytics footer is present on every page
@@ -70,6 +71,9 @@ jobs:
             echo "::error::No generated page contains the analytics footer (docc custom templates were not applied)."
             exit 1
           fi
+
+      - name: Persist custom domain
+        run: printf '%s' 'nyarudb2.galileostd.io' > ./docs/CNAME
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
