@@ -44,7 +44,6 @@ jobs:
           swift package --allow-writing-to-directory ./docs \
             generate-documentation --target NyaruDB2 --output-path ./docs \
             --transform-for-static-hosting \
-            --hosting-base-url https://nyarudb2.galileostd.io \
             --experimental-enable-custom-templates
 
       - name: Redirect site root to documentation landing
